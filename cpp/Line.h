@@ -12,15 +12,16 @@ public:
     ~Line();
     //Line() = delete;
     Line(const Line& line) = delete;  // Удаляем конструктор копирования
-    //void setBegin(const Point& begin);
-    //void setEnd(const Point& end);
-    const Point& getBegin() const;
-    const Point& getEnd() const;
     double getLenght() const;
     void display() const;
     std::string toString() const;
+    const Point& getBegin() const;
+    const Point& getEnd() const;
 
 private:
+    //void setBegin(const Point& begin);
+    //void setEnd(const Point& end);
+
     /// <summary>
     /// Координаты начала отрезка
     /// </summary>

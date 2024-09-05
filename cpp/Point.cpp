@@ -61,6 +61,47 @@ Point::~Point()
 }
 
 /// <summary>
+/// Вывод в стандартный поток вывода
+/// </summary>
+void Point::display() const
+{
+    std::cout << ">Point::display()" << std::endl;
+    std::cout << toString() << std::endl;
+}
+
+/// <summary>
+/// Получить текстовое представление объекта
+/// </summary>
+/// <returns>Текстовое представление объекта</returns>
+std::string Point::toString() const
+{
+    std::cout << ">Point::toString()" << std::endl;
+    std::ostringstream os;
+    os << "Point(" << getX() << ", " << getY() << ")";
+    return os.str();
+}
+
+/// <summary>
+/// Геттер для поля x
+/// </summary>
+/// <returns>Значение поля x</returns>
+double Point::getX() const
+{
+    std::cout << ">Point::getX()" << std::endl;
+    return m_x;
+}
+
+/// <summary>
+/// Геттер для поля y
+/// </summary>
+/// <returns>Значение поля y</returns>
+double Point::getY() const
+{
+    std::cout << ">Point::getY()" << std::endl;
+    return m_y;
+}
+
+/// <summary>
 /// Инициализатор объекта из стандартного потока ввода
 /// </summary>
 void Point::read()
@@ -105,45 +146,4 @@ void Point::setY(double y)
 {
     std::cout << ">Point::setY(" << y << ")" << std::endl;
     m_y = y;
-}
-
-/// <summary>
-/// Геттер для поля x
-/// </summary>
-/// <returns>Значение поля x</returns>
-double Point::getX() const
-{
-    std::cout << ">Point::getX()" << std::endl;
-    return m_x;
-}
-
-/// <summary>
-/// Геттер для поля y
-/// </summary>
-/// <returns>Значение поля y</returns>
-double Point::getY() const
-{
-    std::cout << ">Point::getY()" << std::endl;
-    return m_y;
-}
-
-/// <summary>
-/// Вывод в стандартный поток вывода
-/// </summary>
-void Point::display() const
-{
-    std::cout << ">Point::display()" << std::endl;
-    std::cout << toString() << std::endl;
-}
-
-/// <summary>
-/// Получить текстовое представление объекта
-/// </summary>
-/// <returns>Текстовое представление объекта</returns>
-std::string Point::toString() const
-{
-    std::cout << ">Point::toString()" << std::endl;
-    std::ostringstream os;
-    os << "Point(" << getX() << ", " << getY() << ")";
-    return os.str();
 }

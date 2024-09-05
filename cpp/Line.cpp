@@ -33,40 +33,6 @@ Line::~Line()
     std::cout << ">Line::~Line()" << std::endl;
 }
 
-//void Line::setBegin(const Point& begin)
-//{
-//    std::cout << ">Line::setBegin(&" << begin.toString() << ")" << std::endl;
-//    // здесь у Point вызывается конструктор копирования
-//    m_begin = begin;
-//}
-//
-//void Line::setEnd(const Point& end)
-//{
-//    std::cout << ">Line::setEnd(&" << end.toString() << ")" << std::endl;
-//    // здесь у Point вызывается конструктор копирования
-//    m_end = end;
-//}
-
-/// <summary>
-/// Геттер для поля begin
-/// </summary>
-/// <returns>Константная ссылка на 2D точку начала отрезка</returns>
-const Point& Line::getBegin() const
-{
-    std::cout << ">Line::getBegin()" << std::endl;
-    return m_begin;
-}
-
-/// <summary>
-/// Геттер для поля end
-/// </summary>
-/// <returns>Константная ссылка на 2D точку конца отрезка</returns>
-const Point& Line::getEnd() const
-{
-    std::cout << ">Line::getEnd()" << std::endl;
-    return m_end;
-}
-
 /// <summary>
 /// Вычислить длину отрезка
 /// </summary>
@@ -103,3 +69,37 @@ std::string Line::toString() const
     os << "Point(" << getBegin().toString() << ", " << getEnd().toString() << ")";
     return os.str();
 }
+
+/// <summary>
+/// Геттер для поля begin
+/// </summary>
+/// <returns>Константная ссылка на 2D точку начала отрезка</returns>
+const Point& Line::getBegin() const
+{
+    std::cout << ">Line::getBegin()" << std::endl;
+    return m_begin;
+}
+
+/// <summary>
+/// Геттер для поля end
+/// </summary>
+/// <returns>Константная ссылка на 2D точку конца отрезка</returns>
+const Point& Line::getEnd() const
+{
+    std::cout << ">Line::getEnd()" << std::endl;
+    return m_end;
+}
+
+//void Line::setBegin(const Point& begin)
+//{
+//    std::cout << ">Line::setBegin(&" << begin.toString() << ")" << std::endl;
+//    // здесь у Point вызывается конструктор копирования
+//    m_begin = begin;
+//}
+//
+//void Line::setEnd(const Point& end)
+//{
+//    std::cout << ">Line::setEnd(&" << end.toString() << ")" << std::endl;
+//    // здесь у Point вызывается конструктор копирования
+//    m_end = end;
+//}

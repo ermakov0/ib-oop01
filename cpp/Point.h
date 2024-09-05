@@ -11,16 +11,16 @@ public:
     Point(double x, double y);
     Point(const Point& point);
     ~Point();
-    void setX(double x);
-    void setY(double y);
-    double getX() const;
-    double getY() const;
     void display() const;
     std::string toString() const;
+    double getX() const;
+    double getY() const;
 
 private:
     void read();
     void init(double x, double y);
+    void setX(double x);
+    void setY(double y);
 
     /// <summary>
     /// Координата x
