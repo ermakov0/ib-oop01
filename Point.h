@@ -2,9 +2,10 @@
 #include <string>
 
 // 2D точка
-class Point {
+class Point
+{
 public:
-    // Конструктор
+    // Конструктор по умолчанию
     Point();
     // Конструктор с параметрами
     Point(double x, double y);

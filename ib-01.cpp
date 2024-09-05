@@ -7,7 +7,8 @@
 #include "Point.h"
 #include "Line.h"
 
-int main() {
+int main()
+{
     system("chcp 1251 > nul");
 
     // первая точка вводится с клавиатуры
