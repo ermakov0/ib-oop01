@@ -5,8 +5,13 @@
 #include "Point.h"
 #include "Line.h"
 
-Line::Line(const Point& begin, const Point& end) : m_begin{ begin }, m_end(end)  // здесь у Point вызывается конструктор копирования
-{
+/// <summary>
+/// Конструктор с параметрами
+/// </summary>
+/// <param name="begin">2D точка начала отрезка</param>
+/// <param name="end">2D точка конца отрезка</param>
+Line::Line(const Point& begin, const Point& end) : m_begin{ begin }, m_end(end)
+{   // здесь у Point вызывается конструктор копирования
     std::cout << ">Line::Line(&" << begin.toString() << ", &" << end.toString() << ")" << std::endl;
 }
 
@@ -20,6 +25,9 @@ Line::Line(const Point& begin, const Point& end) : m_begin{ begin }, m_end(end) 
 //    setEnd(end);
 //}
 
+/// <summary>
+/// Деструктор
+/// </summary>
 Line::~Line()
 {
     std::cout << ">Line::~Line()" << std::endl;
@@ -39,18 +47,30 @@ Line::~Line()
 //    m_end = end;
 //}
 
+/// <summary>
+/// Геттер для поля begin
+/// </summary>
+/// <returns>Константная ссылка на 2D точку начала отрезка</returns>
 const Point& Line::getBegin() const
 {
     std::cout << ">Line::getBegin()" << std::endl;
     return m_begin;
 }
 
+/// <summary>
+/// Геттер для поля end
+/// </summary>
+/// <returns>Константная ссылка на 2D точку конца отрезка</returns>
 const Point& Line::getEnd() const
 {
     std::cout << ">Line::getEnd()" << std::endl;
     return m_end;
 }
 
+/// <summary>
+/// Вычислить длину отрезка
+/// </summary>
+/// <returns>Длина отрезка по координатам двух 2D точек</returns>
 double Line::getLenght() const
 {
     std::cout << ">Line::getLenght()" << std::endl;
@@ -63,12 +83,19 @@ double Line::getLenght() const
     return result;
 }
 
+/// <summary>
+/// Вывод в стандартный поток вывода
+/// </summary>
 void Line::display() const
 {
     std::cout << ">Line::display()" << std::endl;
     std::cout << toString() << std::endl;
 }
 
+/// <summary>
+/// Получить текстовое представление объекта
+/// </summary>
+/// <returns>Текстовое представление объекта</returns>
 std::string Line::toString() const
 {
     std::cout << ">Line::toString()" << std::endl;

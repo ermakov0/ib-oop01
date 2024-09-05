@@ -1,12 +1,15 @@
 ﻿/**
  * Л/р 1 Объектно-ориентированное программирование на С++ и C#
 */
-
 #include <iostream>
 #include <windows.h>
 #include "Point.h"
 #include "Line.h"
 
+/// <summary>
+/// Точка входа в программу
+/// </summary>
+/// <returns>Всегда 0</returns>
 int main()
 {
     system("chcp 1251 > nul");
@@ -25,4 +28,5 @@ int main()
     std::cout << "Отрезок line:" << std::endl;
     line.display();
     std::cout << "Длина отрезка line: " << line.getLenght() << std::endl;
+    return 0;
 }
