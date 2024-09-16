@@ -1,6 +1,6 @@
 ﻿//using System;
 
-namespace Ib.Lab1
+namespace ib02
 {
     /// <summary>
     /// 2D точка
@@ -13,8 +13,8 @@ namespace Ib.Lab1
         public Point()
         {
             Console.WriteLine(">Point::Point()");
-            // передаём инициализацию объекта другому методу
-            Read();
+            X = 0.0;
+            Y = 0.0;
         }
 
         /// <summary>
@@ -25,28 +25,8 @@ namespace Ib.Lab1
         public Point(double x, double y)
         {
             Console.WriteLine(">Point::Point({0}, {1})", x, y);
-            Init(x, y);
-        }
-
-        /*
-        /// <summary>
-        /// Конструктор копирования
-        /// </summary>
-        /// <param name="point">2D точка для копирования</param>
-        public Point(Point point)
-        {
-            Console.WriteLine(">Point::Point({0})", point);
-            Init(point.X, point.Y);
-        }
-        */
-
-        /// <summary>
-        /// Вывод в стандартный поток вывода
-        /// </summary>
-        public void Display()
-        {
-            Console.WriteLine(">Point::Display()");
-            Console.WriteLine(ToString());
+            X = x;
+            Y = y;
         }
 
         /// <summary>
@@ -55,37 +35,49 @@ namespace Ib.Lab1
         /// <returns>Текстовое представление объекта</returns>
         override public string ToString()
         {
-            Console.WriteLine(">Point::ToString()");
+            //Console.WriteLine(">Point::ToString()");
             return "Point(" + X + ", " + Y + ")";
         }
 
         /// <summary>
         /// Инициализатор объекта из стандартного потока ввода
         /// </summary>
-        private void Read()
+        public static Point Read()
         {
             Console.WriteLine(">Point::Read()");
             Console.Write("Введите x: ");
             double x = Convert.ToDouble(Console.ReadLine());
             Console.Write("Введите y: ");
             double y = Convert.ToDouble(Console.ReadLine());
-            Init(x, y);
+            return new Point(x, y);
         }
 
         /// <summary>
-        /// Инициализатор объекта
+        /// Перегрузка оператора "-"
         /// </summary>
-        /// <param name="x">Координата x</param>
-        /// <param name="y">Координата y</param>
-        private void Init(double x, double y)
+        /// <param name="lhs">Левый операнд</param>
+        /// <param name="rhs">Правый операнд</param>
+        /// <returns>Новая точка</returns>
+        public static Point operator -(Point lhs, Point rhs)
         {
-            Console.WriteLine(">Point::Init({0}, {1})", x, y);
-            X = x;
-            Y = y;
+            double x = lhs.X - rhs.X;
+            double y = lhs.Y - rhs.Y;
+            return new Point(x, y);
         }
 
         /// <summary>
-        /// Координата x
+        /// Координата X
+        /// </summary>
+        public double X { get; private set; }
+
+        /// <summary>
+        /// Координата Y
+        /// </summary>
+        public double Y { get; private set; }
+
+        /*
+        /// <summary>
+        /// Координата X
         /// </summary>
         public double X
         {
@@ -102,7 +94,7 @@ namespace Ib.Lab1
         }
 
         /// <summary>
-        /// Координата y
+        /// Координата Y
         /// </summary>
         public double Y
         {
@@ -119,13 +111,14 @@ namespace Ib.Lab1
         }
 
         /// <summary>
-        /// Координата x
+        /// Координата X
         /// </summary>
         private double m_x;
 
         /// <summary>
-        /// Координата y
+        /// Координата Y
         /// </summary>
         private double m_y;
+        */
     };
 }

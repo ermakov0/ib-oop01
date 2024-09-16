@@ -5,7 +5,6 @@
 #include <windows.h>
 #include "Point.h"
 #include "Line.h"
-#include <cmath>
 
 /// <summary>
 /// Точка входа в программу
@@ -36,6 +35,6 @@ int main()
 
     Line line2;
     std::cin >> line2;
-    std::cout << line2;
+    std::cout << line2 << std::endl;
     return 0;
 }

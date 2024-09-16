@@ -1,8 +1,6 @@
 ﻿//using System;
 
-using static System.Runtime.InteropServices.JavaScript.JSType;
-
-namespace Ib.Lab1
+namespace ib02
 {
     /// <summary>
     /// 2D отрезок
@@ -36,22 +34,26 @@ namespace Ib.Lab1
         }
 
         /// <summary>
-        /// Вывод в стандартный поток вывода
-        /// </summary>
-        public void Display()
-        {
-            Console.WriteLine(">Line::Display()");
-            Console.WriteLine(ToString());
-        }
-
-        /// <summary>
         /// Получить текстовое представление объекта
         /// </summary>
         /// <returns>Текстовое представление объекта</returns>
         override public string ToString()
         {
-            Console.WriteLine(">Line::ToString()");
+            //Console.WriteLine(">Line::ToString()");
             return "Line(" + Begin + ", " + End + ")";
+        }
+
+        /// <summary>
+        /// Инициализатор объекта из стандартного потока ввода
+        /// </summary>
+        public static Line Read()
+        {
+            Console.WriteLine(">Line::Read()");
+            Console.WriteLine("Введите координаты начала отрезка:");
+            Point begin = Point.Read();
+            Console.WriteLine("Введите координаты конца отрезка:");
+            Point end = Point.Read();
+            return new Line(begin, end);
         }
 
         /// <summary>
