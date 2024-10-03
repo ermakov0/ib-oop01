@@ -19,6 +19,10 @@ Point::Point(double x, double y)
     m_y = y;
 }
 
+Point::~Point()
+{
+}
+
 std::ostream& operator<<(std::ostream& os, const Point& obj)
 {
     os << "Point(" << obj.getX() << ',' << obj.getY() << ')';

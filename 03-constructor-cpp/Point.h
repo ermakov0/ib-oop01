@@ -22,6 +22,11 @@ public:
     /// <param name="y"></param>
     Point(double x, double y);
 
+    /// <summary>
+    /// Деструктор
+    /// </summary>
+    ~Point();
+
     double getX() const { return m_x; }
     double getY() const { return m_y; }
     friend std::ostream& operator<<(std::ostream& os, const Point& obj);
