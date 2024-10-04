@@ -1,4 +1,5 @@
 #include <iostream>
+#include <numeric>
 #include <stdexcept>
 
 #include "Fraction.h"
@@ -7,7 +8,7 @@ Fraction::Fraction(int numenator, int denuminator)
 {
     setNumenator(numenator);
     setDenuminator(denuminator);
-    // todo normalize
+    normalize();
 }
 
 void Fraction::setNumenator(int value)
@@ -24,14 +25,13 @@ void Fraction::setDenuminator(int value)
     m_denuminator = value;
 }
 
-int Fraction::getNumenator() const
+void Fraction::normalize()
 {
-    return m_numenator;
-}
-
-int Fraction::getDenuminator() const
-{
-    return m_denuminator;
+    const int n1 = getNumenator();
+    const int d1 = getDenuminator();
+    const int gcd = std::gcd(n1, d1);  // c++17
+    setNumenator(n1 / gcd);
+    setDenuminator(d1 / gcd);
 }
 
 Fraction Fraction::operator+(const Fraction& rhs) const
@@ -46,6 +46,24 @@ Fraction Fraction::operator+(const Fraction& rhs) const
     const int d11 = d1 * d2;
 
     return Fraction(n11 + n22, d11);
+}
+
+Fraction& Fraction::operator++()
+{
+    const int n1 = getNumenator();
+    const int d1 = getDenuminator();
+    setNumenator(n1 + d1);  // +1
+    normalize();
+    return *this;
+}
+
+Fraction Fraction::operator++(int)
+{
+    // копируется объект
+    Fraction old = *this;
+    // переиспользуется перегрузка префиксного инкремента
+    ++*this;
+    return old;
 }
 
 std::ostream& operator<<(std::ostream& os, const Fraction& obj)

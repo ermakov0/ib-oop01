@@ -14,9 +14,6 @@ public:
     /// <param name="denuminator">знаменатель</param>
     Fraction(int numenator, int denuminator);
 
-    int getNumenator() const;
-    int getDenuminator() const;
-
     /// <summary>
     /// Перегрузка оператора "+"
     /// </summary>
@@ -24,13 +21,32 @@ public:
     /// <returns>Новый объект дроби</returns>
     Fraction operator+(const Fraction& rhs) const;
 
-    //todo ++a and a++
+    // https://learn.microsoft.com/en-us/cpp/cpp/increment-and-decrement-operator-overloading-cpp
+
+    /// <summary>
+    /// Перегрузка оператора "префиксный ++"
+    /// </summary>
+    /// <returns>Ссылка на объект</returns>
+    Fraction& operator++();
+
+    /// <summary>
+    /// Перегрузка оператора "постфиксный ++"
+    /// </summary>
+    /// <returns>Объект со старым значением</returns>
+    Fraction operator++(int);
 
     friend std::ostream& operator<<(std::ostream& os, const Fraction& obj);
 
+    int getNumenator() const { return m_numenator; }
+    int getDenuminator() const { return m_denuminator; }
 private:
     void setNumenator(int value);
     void setDenuminator(int value);
+
+    /// <summary>
+    /// Нормализовать число
+    /// </summary>
+    void normalize();
 
     /// <summary>
     /// Числитель
