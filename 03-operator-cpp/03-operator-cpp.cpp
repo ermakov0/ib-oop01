@@ -1,16 +1,11 @@
 ﻿#include <iostream>
 #include <windows.h>
-#include <cmath>
 
 #include "Fraction.h"
 
 int main()
 {
     system("chcp 1251 > nul");
-
-        double njkvfsnk= pow(njkvfsnk, 4);
-        std::cout << njkvfsnk << std::endl;
-        return 0;
 
     Fraction f1(1, 2);
     Fraction f2(1, 3);
